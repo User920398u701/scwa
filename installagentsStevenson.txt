@@ -1,0 +1,23 @@
+# Define the download URL
+$url = "https://genuine.support/Bin/DataTel.ClientSetup.msi?e=Access&y=Guest&c=UES%20-%20Stevenson%20Consulting&c=&c=&c=&c=&c=&c=&c="
+# Specify the local path where the MSI will be saved
+$localPath = "$env:TEMP\DataTel.ClientSetup.msi"
+# Download the MSI
+Invoke-WebRequest -Uri $url -OutFile $localPath
+# Install the MSI
+Start-Process -Wait -FilePath "msiexec" -ArgumentList "/i `"$localPath`" /qn"
+# Clean up
+Remove-Item -Path $localPath -Force
+Write-Host "Installation complete."
+
+# Define the download URL
+$url = "https://us2.ninjarmm.com/agent/installer/39d6072f-0583-4be5-9c5e-2d08b4eb1d2e/stevensonconsultingmidlothian-7.0.2317-windows-installer.msi"
+# Specify the local path where the MSI will be saved
+$localPath = "$env:TEMP\DataTel.ClientSetup.msi"
+# Download the MSI
+Invoke-WebRequest -Uri $url -OutFile $localPath
+# Install the MSI
+Start-Process -Wait -FilePath "msiexec" -ArgumentList "/i `"$localPath`" /qn"
+# Clean up
+Remove-Item -Path $localPath -Force
+Write-Host "Installation complete."
